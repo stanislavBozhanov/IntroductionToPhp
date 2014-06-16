@@ -9,7 +9,11 @@ $pageTitle = 'Списък с разходи';
         <option value="0">Всички</option>
         <?php
         foreach ($product_types as $key=>$type) {
-            echo '<option value="'.$key.'">'.$type.'</option>';
+            echo '<option';
+            if(isset($_POST['filter']) && (int)$_POST['filter']==$key) {
+                echo ' selected ';
+            }
+            echo ' value="'.$key.'">'.$type.'</option>';
         }
         ?>
     </select>
